@@ -58,6 +58,24 @@ A modern, professional website showcasing enterprise-grade IT Infrastructure Man
 - Modern web browser (Chrome, Firefox, Safari, Edge)
 - Python 3.x (for local development)
 
+### Running on GitHub Codespaces (Recommended)
+
+1. **Open in Codespaces**
+   - Click the green "Code" button on the repository
+   - Select "Codespaces" tab
+   - Click "Create codespace on main"
+
+2. **Start the web server** (automatically or manually)
+```bash
+cd /workspaces/Test-Web-Code
+python3 -m http.server 8000
+```
+
+3. **Access your website**
+   - VS Code will show a popup with the forwarded URL
+   - Or go to the "Ports" tab and click the globe icon next to port 8000
+   - The forwarded URL will look like: `https://super-computing-machine-XXXXX.app.github.dev`
+
 ### Running Locally
 
 1. **Clone the repository**
