@@ -1,10 +1,429 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First GitHub Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudVault - IT Infrastructure & DevOps Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #0f1419;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #00bcd4;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #00acc1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            background: #1a1f2e;
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        section h2 {
+            color: #00bcd4;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #252d3d;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #00bcd4;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 188, 212, 0.2);
+        }
+
+        .feature-card h3 {
+            color: #00bcd4;
+            margin-bottom: 1rem;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #0a0e13;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #1a1f2e;
+        }
+
+        footer a {
+            color: #00bcd4;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                margin-top: 150px;
+            }
+        }
+
+        h3 {
+            color: #00bcd4;
+        }
+
+        section p {
+            color: #b0b0b0;
+        }
+
+        section #contact p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <p>This website is hosted on GitHub Pages.</p>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">☁️ CloudVault</a>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#infrastructure">Infrastructure</a>
+                <a href="#devops">DevOps</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Cloud Infrastructure & DevOps Excellence</h1>
+            <p>Modernize your IT infrastructure with enterprise-grade DevOps solutions</p>
+            <a href="#" class="btn">Get Started</a>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="container">
+            <h2>🚀 Our Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>Cloud Architecture</h3>
+                    <p>Design and implement scalable cloud solutions on AWS, Azure, and GCP</p>
+                </div>
+                <div class="service-card">
+                    <h3>CI/CD Pipelines</h3>
+                    <p>Automate deployment workflows for faster, reliable releases</p>
+                </div>
+                <div class="service-card">
+                    <h3>Infrastructure as Code</h3>
+                    <p>Infrastructure automation using Terraform, CloudFormation, and Ansible</p>
+                </div>
+                <div class="service-card">
+                    <h3>Containerization</h3>
+                    <p>Docker and Kubernetes orchestration for microservices architecture</p>
+                </div>
+                <div class="service-card">
+                    <h3>Monitoring & Logging</h3>
+                    <p>Comprehensive observability with ELK, Prometheus, and Grafana</p>
+                </div>
+                <div class="service-card">
+                    <h3>Security & Compliance</h3>
+                    <p>Enterprise security implementations and compliance frameworks</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infrastructure Section -->
+        <section id="infrastructure" class="container">
+            <h2>🏗️ IT Infrastructure Management</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Network Architecture</h3>
+                    <p>Design and manage enterprise network infrastructure with high availability and redundancy</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Server Management</h3>
+                    <p>On-premise and cloud server provisioning, configuration, and lifecycle management</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Database Management</h3>
+                    <p>SQL and NoSQL database optimization, backup strategies, and disaster recovery</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Storage Solutions</h3>
+                    <p>NAS, SAN, and cloud storage solutions with data protection and replication</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Disaster Recovery</h3>
+                    <p>RTO and RPO optimization with failover mechanisms and business continuity planning</p>
+                </div>
+                <div class="feature-card">
+                    <h3>System Administration</h3>
+                    <p>Linux and Windows system administration, patch management, and user provisioning</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DevOps Section -->
+        <section id="devops" class="container">
+            <h2>⚙️ DevOps Solutions</h2>
+            <h3>Our Technology Stack</h3>
+            <div class="tech-stack">
+                <span class="tech-badge">Kubernetes</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Terraform</span>
+                <span class="tech-badge">Jenkins</span>
+                <span class="tech-badge">GitLab CI/CD</span>
+                <span class="tech-badge">GitHub Actions</span>
+                <span class="tech-badge">Ansible</span>
+                <span class="tech-badge">Prometheus</span>
+                <span class="tech-badge">ELK Stack</span>
+                <span class="tech-badge">ArgoCD</span>
+                <span class="tech-badge">Helm</span>
+                <span class="tech-badge">AWS</span>
+                <span class="tech-badge">Azure</span>
+                <span class="tech-badge">GCP</span>
+            </div>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="number">99.99%</div>
+                    <div>Uptime SLA</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">24/7</div>
+                    <div>Support Coverage</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">500+</div>
+                    <div>Infrastructure Nodes</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">100+</div>
+                    <div>Deployments/Month</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="container">
+            <h2>✨ Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Scalability</h3>
+                    <p>Auto-scaling infrastructure that grows with your business needs</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reliability</h3>
+                    <p>Multi-region deployment with automatic failover and load balancing</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Security First</h3>
+                    <p>Zero-trust architecture, encryption, and continuous compliance monitoring</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Cost Optimization</h3>
+                    <p>Resource optimization and cost management strategies for cloud services</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Automation</h3>
+                    <p>Infrastructure automation reducing manual processes and human errors</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Monitoring</h3>
+                    <p>Real-time monitoring and alerting for proactive issue detection</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container">
+            <h2>📞 Get In Touch</h2>
+            <p>Have questions about our infrastructure and DevOps services? We're here to help you modernize your IT operations.</p>
+            <div style="text-align: center;">
+                <a href="mailto:contact@cloudvault.io" class="btn">Send Email</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CloudVault - IT Infrastructure & DevOps Solutions</p>
+        <p>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Documentation</a>
+            <a href="#">Blog</a>
+        </p>
+        <p style="margin-top: 1rem; opacity: 0.8;">Empowering enterprises with modern infrastructure and DevOps excellence</p>
+    </footer>
 </body>
 </html>
